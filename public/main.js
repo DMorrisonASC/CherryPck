@@ -100,7 +100,7 @@ fetch('https://api.spotify.com/v1/me/playlists', {
   headers: {
     'Content-Type': 'application/json',
     // 'Content-Type': 'application/x-www-form-urlencoded',
-    Authorization: "Bearer BQBBD8hI-nP5_1eyRZtPVxHwmN0ODty2Dmi2FhJ-QVqimwQ1Y1MGCR0ZEbpIMjE8zreRrL15ek2BxT89RMfikNbv-lrrhj_9AEEtLmKa2wqGvRyIk6MtufoFf6XbcCBbmW2gfGym0DyZS6WS5OGwFlGo1X5gLwigSKbivFCLQsZGp2U"
+    Authorization: "Bearer BQDAM5CwYyZfgPh1t-UwczwtWtdi8y7TUuHZj875k6kzev3h-AkrL9kmwpcKybbz4i65Qj06Xoi3lSrAGgqypcBZB8C8VcDO0bLL2kfNtPT7tNqou2uRQyNwMNHkg8BA-KBX6vytQV3I0zXKRA4h2b6XIe3ZtIziztOI0EfiADkXPv8"
   },
 }).then(function (respon) {
   return respon.json();
@@ -134,13 +134,33 @@ fetch('https://api.spotify.com/v1/me/playlists', {
 
 
 const userData = (data) => {
-  divPlaylist = document.getElementById("divPlaylist")
-  iframe = document.createElement("iframe")
+  // divPlaylist = document.getElementById("divPlaylist")
+  // iframe = document.createElement("iframe")
+  // iframe.src = data;
+  // iframe.width = "300px";
+  // iframe.height = "380px";
+  // iframe.allow = "encrypted-media";
+  // iframe.allowTransparency = "true"
+  // divPlaylist.appendChild(iframe);
+  // Puts iframes of Spotify into seperate slideshow
+  const inner = document.getElementById("innerPlaylist")
+  const iframe = document.createElement("iframe")
   iframe.src = data;
-  iframe.width = "300px";
-  iframe.height = "380px";
+  // iframe.allowFullscreen = true;
+  const item = document.createElement("div")
+  const group = document.createElement("div")
+  const card = document.createElement("div")
+  inner.appendChild(item)
+  item.appendChild(group)
+  group.appendChild(card);
+  card.appendChild(iframe);
+  inner.className = "carousel-inner"
+  item.className = "carousel-item"
+  group.className = "card-group"
+  card.className = "card";
   iframe.allow = "encrypted-media";
   iframe.allowTransparency = "true"
-  divPlaylist.appendChild(iframe);
+  iframe.width = "300px";
+  iframe.height = "380px";
 }
 
