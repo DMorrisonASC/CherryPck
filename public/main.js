@@ -160,7 +160,7 @@ const userData = (data) => {
   card.className = "card";
   iframe.allow = "encrypted-media";
   iframe.allowTransparency = "true"
-  iframe.width = "300px";
+  iframe.width = "100%";
   iframe.height = "380px";
 }
 
